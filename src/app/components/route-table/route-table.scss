@@ -1,0 +1,43 @@
+.route-table {
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.route-table th,
+.route-table td {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.route-table th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+  user-select: none;
+}
+
+.route-table th span {
+  margin-left: 5px;
+}
+
+.route-table tr.selected {
+  background-color: #e3f2fd;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}

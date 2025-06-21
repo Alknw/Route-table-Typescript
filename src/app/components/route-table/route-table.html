@@ -1,0 +1,47 @@
+<h2>Действующие маршруты IPv4</h2>
+
+<label>
+  Фильтр по адресу:
+  <input [(ngModel)]="filterAddress" placeholder="Введите часть IP" />
+</label>
+<table class="route-table">
+  <thead>
+    <tr>
+      <th (click)="sortRoutes('address')">
+        Адрес назначения
+        <span *ngIf="sortKey === 'address'"> {{ sortAsc ? '▲' : '▼' }} </span>
+      </th>
+      <th (click)="sortRoutes('mask')">
+        Маска
+        <span *ngIf="sortKey === 'mask'"> {{ sortAsc ? '▲' : '▼' }} </span>
+      </th>
+
+      <th (click)="sortRoutes('gateway')">
+        Шлюз
+        <span *ngIf="sortKey === 'gateway'"> {{ sortAsc ? '▲' : '▼' }} </span>
+      </th>
+      <th (click)="sortRoutes('interface')">
+        Интерфейс
+        <span *ngIf="sortKey === 'interface'"> {{ sortAsc ? '▲' : '▼' }} </span>
+      </th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let route of filteredRoutes"
+      [class.selected]="selectedRoute === route"
+      (click)="selectRoute(route)"
+    >
+      <td>{{ route.address }}</td>
+      <td>{{ route.mask }}</td>
+      <td>{{ route.gateway }}</td>
+      <td>{{ interfaceNames[route.interface] || route.interface }}</td>
+      <td>
+        <button (click)="removeRoute(route)" class="delete-button">
+          Удалить
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
